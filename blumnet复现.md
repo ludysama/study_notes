@@ -3,6 +3,7 @@
 docker pull ludysama369/blumnet:origin
 ```
 以下记录的是复现的过程，鉴于镜像已经制作完成，可以直接略过下面的步骤，拉取我制作好的镜像直接开始实验
+镜像中包含有需要用到的主干网络预训练权重、sk1491数据集（目前看代码是没有使用额外的旋转翻折等数据增广，数据量很小）
 
 
 ## 1、拉取基础的docker镜像
@@ -34,7 +35,7 @@ docker.io/pytorch/pytorch:1.9.1-cuda11.1-cudnn8-devel
 ## 2、创建容器
 然后创建容器，基于前车之鉴，创建的时候把数据盘也加进去，这里我加了两块数据盘，格式是 -v 宿主路径:容器内路径，起个名字blumnet --gpus all是必须的，不然无法在容器中使用gpu资源
 ```
-docker run -it --gpus all -v /ssd/ubuntu_docker:/ssd -v /chia/f0:/hdd -n blumnet pytorch/pytorch:1.9.1-cuda11.1-cudnn8-devel
+docker run -it --gpus all -v /ssd/ubuntu_docker:/ssd -v /chia/f0:/hdd --name blumnet pytorch/pytorch:1.9.1-cuda11.1-cudnn8-devel
 ```
 
 ### 2.x 后续提交镜像时需要注意的事项
