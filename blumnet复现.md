@@ -1,3 +1,10 @@
+### 直接doker pull拉取我制作好的镜像
+```
+docker pull ludysama369/blumnet:origin
+```
+以下记录的是复现的过程，鉴于镜像已经制作完成，可以直接略过下面的步骤，拉取我制作好的镜像直接开始实验
+
+
 ## 1、拉取基础的docker镜像
 按照blumnet官方的说法 （https://github.com/cong-yang/BlumNet）使用的环境在torch1.9 cuda10.2以上，因此直接拉取一个相近的docker torch镜像
 拉取镜像的网站是： https://hub.docker.com/r/pytorch/pytorch/tags
