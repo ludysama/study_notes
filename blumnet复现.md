@@ -83,3 +83,9 @@ python test.py
 
 ## 8、开始训练
 按照项目readme进行接下来的步骤吧
+
+## 后记
+在这个docker下，如果需要使用diffvg做渲染器，安装的时候会报一个missing PYTHON_INCLUDE_DIRS的错误，尝试了几把，解决的办法是安装一个python-dev
+'''
+apt-get install python-dev
+'''
