@@ -38,6 +38,13 @@ docker.io/pytorch/pytorch:1.9.1-cuda11.1-cudnn8-devel
 docker run -it --gpus all -v /ssd/ubuntu_docker:/ssd -v /chia/f0:/hdd --name blumnet pytorch/pytorch:1.9.1-cuda11.1-cudnn8-devel
 ```
 
+补充：
+后续的使用中发生了共享内存不足导致dataloader崩溃的问题，需要在创建容器的时候额外添加一句
+```
+--shm-size 8G
+```
+这个先本地使用 df -h 看一下shm大小，不超过本地的共享内存大小即可
+
 ### 2.x 后续提交镜像时需要注意的事项
 接下来可以进入容器内进行开发了，这点对于vscode开发环境还是很轻松的
 ![image](https://user-images.githubusercontent.com/62829345/210067627-00f3ccfd-691d-4df3-942a-ea4f1de7014c.png)
